@@ -39,19 +39,18 @@
                 </div>
                 <label for="login-as">Login As :</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="login-as" id="flexRadioDefault1" checked>
+                    <input class="form-check-input" type="radio" name="login-as" id="flexRadioDefault1" value="mahasiswa">
                     <label class="form-check-label" for="flexRadioDefault1">
                         Mahasiswa
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="login-as" id="flexRadioDefault2">
+                    <input class="form-check-input" type="radio" name="login-as" id="flexRadioDefault2" value="dosen">
                     <label class="form-check-label" for="flexRadioDefault2">
                         Dosen
                     </label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
-                
             </form>
         </div>
 
