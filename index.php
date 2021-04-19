@@ -39,7 +39,7 @@
                 </div>
                 <label for="login-as">Login As :</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="login-as" id="flexRadioDefault1" value="mahasiswa">
+                    <input class="form-check-input" type="radio" name="login-as" id="flexRadioDefault1" value="mahasiswa" checked>
                     <label class="form-check-label" for="flexRadioDefault1">
                         Mahasiswa
                     </label>
