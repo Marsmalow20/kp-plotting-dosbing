@@ -107,7 +107,7 @@
                         <td><?= $data['dosen_nama'] ?></td>
                         <td>
                             <a href="edit_mhs.php?mhs=<?= $data['mhs_username'] ?>&dosen=<?= $data['dosen_username'] ?>"><i class="fa fa-edit" style="font-size: 25px;" title="Edit"></i></a>
-                            <a href="../config/mahasiswa_delete.php?mhs=<?= $data['mhs_username'] ?>"><i class="fa fa-trash" style="font-size: 25px;" title="Delete"></i></a>
+                            <a href="proc/delete_mhs.php?mhs=<?= $data['mhs_username'] ?>" onclick="return confirm('Hapus Mahasiswa <?= $data['mhs_nama'] ?> ?')"><i class="fa fa-trash" style="font-size: 25px;" title="Delete"></i></a>
                             <a href=""><i class="fa fa-info-circle" style="font-size: 25px;" title="Info"></i></a>
                         </td>
                     </tr>

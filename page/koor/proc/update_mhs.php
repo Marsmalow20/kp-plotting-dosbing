@@ -5,7 +5,7 @@
     $nama = $_POST['mhs_nama'];
     $dosbing = $_POST['dosbing'];
 
-    $sql = "UPDATE mhs, bimbingan SET mhs.mhs_nama='$nama', bimbingan.dosen_username='$dosbing' WHERE mhs.mhs_username='$username'";
+    $sql = "UPDATE mhs, bimbingan SET mhs.mhs_nama='$nama', bimbingan.dosen_username='$dosbing' WHERE mhs.mhs_username = bimbingan.mhs_username AND mhs.mhs_username = '$username'";
     $q = mysqli_query($con, $sql);
 
     if($q) {
