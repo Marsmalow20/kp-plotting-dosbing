@@ -58,7 +58,7 @@
             <div class="col-4">
                 <div class="list-group border-primary">
                     <a href="list_dosen.php" class="list-group-item list-group-item-action list-group-item-secondary">Dosen</a>
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Mahasiswa</a>
+                    <a href="list_mhs.php" class="list-group-item list-group-item-action list-group-item-secondary">Mahasiswa</a>
                     <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Bimbingan</a>
                     <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Log Bimbingan</a>
                 </div>
