@@ -6,18 +6,6 @@
     $res = array($_SESSION['login']);
     $stat->execute($res);
     $data = $stat->fetchAll();
-
-    $sql = "SELECT dosen.*, (SELECT COUNT(*) FROM bimbingan WHERE bimbingan.dosen_username = dosen.dosen_username) as jmlbimbingan FROM dosen, bimbingan WHERE dosen.dosen_username != 'koor' GROUP BY dosen.dosen_username ORDER BY dosen.dosen_nama";
-
-    if (isset($_POST['keyword'])) {
-        $keyword = $_POST['keyword'];
-        $sql = "SELECT dosen.*, (SELECT COUNT(*) FROM bimbingan WHERE bimbingan.dosen_username = dosen.dosen_username) as jmlbimbingan FROM dosen, bimbingan WHERE dosen.dosen_username != 'koor' AND dosen.dosen_username LIKE '%$keyword%' OR dosen.dosen_nama LIKE '%$keyword%' GROUP BY dosen.dosen_username ORDER BY dosen.dosen_nama";
-        if ($_POST['keyword'] == '') {
-            $sql = "SELECT dosen.*, (SELECT dosen.*, (SELECT COUNT(*) FROM bimbingan WHERE bimbingan.dosen_username = dosen.dosen_username) as jmlbimbingan FROM dosen, bimbingan WHERE dosen.dosen_username != 'koor' GROUP BY dosen.dosen_username ORDER BY dosen.dosen_nama";
-        }
-    }
-
-    $q= mysqli_query($con,$sql);
 ?>
 
 <!doctype html>
@@ -35,10 +23,10 @@
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="img/Picture18.png" />
-        <title>Dosen</title>
+        <title>Home</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="">Application</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,51 +65,23 @@
         </nav>
 
         <div class="container mt-3">
-            <h3>List Dosen</h3>
-            <div class="row justify-content-between">
-                <div class="col-2">
-                    <a class="btn btn-success" href="input_dosen.php" role="button"><i class="fa fa-plus"></i>&nbspTambah</a>
+            <h3>Input Dosen</h3>
+            <form action="proc/simpan_dosen.php" method="POST">
+                <div class="form-group">
+                    <label for="dosen_username">Username</label>
+                    <input class="form-control" type="text" placeholder="Username (NPP)" name="dosen_username" id="dosen_username" autocomplete="off">
                 </div>
-                <div class="col-4">
-                    <form action="" method="POST">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="keyword" placeholder="Cari Dosen" autocomplete="off">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Search</button>
-                        </div>
-                    </form>
+                <div class="form-group">
+                    <label for="dosen_nama">Nama</label>
+                    <input class="form-control" type="text" placeholder="Nama Dosen" name="dosen_nama" id="dosen_nama" autocomplete="off">
                 </div>
-            </div>
-            
-            <table class="table table-striped mt-4">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">NID</th>
-                        <th scope="col">Nama Dosen</th>
-                        <th scope="col">Kuota Max Mahasiswa</th>
-                        <th scope="col">Mahasiswa Bimbingan Aktif</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        foreach($q as $data):
-                    ?>
-                    <tr>
-                        <th scope="row"><?= $data['dosen_username'] ?></th>
-                        <td><?= $data['dosen_nama'] ?></td>
-                        <td><?= $data['dosen_kuota'] ?></td>
-                        <td><?= $data['jmlbimbingan'] ?></td>
-                        <td>
-                            <a href="dosen_edit.php?nid=<?= $data['dosen_username'] ?>"><i class="fa fa-edit" style="font-size: 25px;" title="Edit"></i></a>
-                            <a href="../config/dosen_delete.php?nid=<?= $data['dosen_username'] ?>"><i class="fa fa-trash" style="font-size: 25px;" title="Delete"></i></a>
-                            <a href=""><i class="fa fa-info-circle" style="font-size: 25px;" title="Info"></i></a>
-                        </td>
-                    </tr>
-                    <?php
-                        endforeach;
-                    ?>
-                </tbody>
-            </table>
+                <div class="form-group">
+                    <label for="dosen_kuota">Kuota Max Mahasiswa</label>
+                    <input type="number" class="form-control" placeholder="Kuota Max Mahasiswa" name="dosen_kuota" id="dosen_kuota" min="0">
+                </div>
+                <small id="passwordHelp" class="form-text text-muted my-2">* Password : 'default'</small>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
 
         <!-- Optional JavaScript -->

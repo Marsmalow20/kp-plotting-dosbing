@@ -10,7 +10,7 @@
     $res = array($_SESSION['login']);
     $stat->execute($res);
     $data = $stat->fetchAll();
-    foreach($data as $dt):
+
 ?>
 
 <!doctype html>
@@ -31,6 +31,7 @@
         <title>Home</title>
     </head>
     <body>
+        <?php foreach($data as $dt): ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="">Application</a>
@@ -51,7 +52,7 @@
                 </div>
             </div>
         </nav>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
 
         <div class="row justify-content-center mt-4">
             <div class="col-4">
