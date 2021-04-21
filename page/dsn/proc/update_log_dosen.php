@@ -1,8 +1,6 @@
 <?php
     include "../../../config/koneksi.php";
 
-    print_r($_POST);
-
     $log_id = $_POST['log_id'];
     $komentar = $_POST['komentar'];
 

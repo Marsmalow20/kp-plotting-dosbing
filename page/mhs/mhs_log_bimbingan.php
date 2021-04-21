@@ -74,6 +74,7 @@
                     <a class="btn btn-success" href="input_log.php" role="button"><i class="fa fa-plus"></i>&nbspTambah</a>
                 </div>
             </div>
+
             <table class="table table-striped mt-4">
                 <thead class="thead-dark">
                     <tr class="d-flex">
@@ -81,7 +82,7 @@
                         <th class="col-2" scope="col">Tanggal</th>
                         <th class="col-4" scope="col">Keterangan Mahasiswa</th>
                         <th class="col-4" scope="col">Komentar Dosen</th>
-                        <th class="col-2" scope="col">Action</th>
+                        <th class="col-1" scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
