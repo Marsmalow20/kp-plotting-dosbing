@@ -90,6 +90,10 @@
                     <input class="form-control" type="text" placeholder="Nama Mahasiswa" name="mhs_nama" value="<?= $data['mhs_nama'] ?>" id="mhs_nama" autocomplete="off">
                 </div>
                 <div class="form-group">
+                    <label for="tgl_input_kp">Tanggal Input KP</label>
+                    <input class="form-control" type="date" placeholder="Tanggal Input KP" name="tgl_input_kp" value="<?= $data['tgl_input_kp'] ?>" id="tgl_input_kp" autocomplete="off">
+                </div>                
+                <div class="form-group">
                     <label class="text-secondary" for="dosbing" style="font-size: .8em;">Dosen Pembimbing</label>
                     <select class="custom-select" id="dosbing" name="dosbing">
                         <?php foreach($data3 as $dt3): ?>
