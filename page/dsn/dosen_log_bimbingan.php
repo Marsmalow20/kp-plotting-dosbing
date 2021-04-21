@@ -6,7 +6,7 @@
     $sql = "SELECT * FROM log WHERE mhs_username = '$mhs_username'";
     $q = mysqli_query($con, $sql);
 
-    $sql2 = "SELECT mhs_nama FROM mhs WHERE mhs_username = '$mhs_username'";
+    $sql2 = "SELECT mhs_nama, tgl_acc FROM mhs WHERE mhs_username = '$mhs_username'";
     $q2 = mysqli_query($con, $sql2);
 
     $sql = "SELECT * FROM dosen WHERE dosen_username = ?";
@@ -71,11 +71,22 @@
         </nav>
 
         <div class="container mt-3">
-            <h3>Log Bimbingan KP Mahasiswa : <?php foreach($q2 as $qq): ?><?=  $qq['mhs_nama'] . " - " . $mhs_username ?><?php endforeach ?></h3>
-            <div class="row justify-content-between">
-                <div class="col-2">
-                    <a class="btn btn-success" href="input_log.php" role="button"><i class="fa fa-plus"></i>&nbspTambah</a>
+            <h3>Log Bimbingan KP Mahasiswa : </h3>
+            <div class="row justify-content-between mt-3">
+                <?php foreach($q2 as $qq): ?>
+                <div class="col-6">
+                    <h4 class="text-secondary">
+                        <?=  $qq['mhs_nama'] . " - " . $mhs_username ?>
+                    </h4>
                 </div>
+                <div class="col-2">
+                    <?php if($qq['tgl_acc'] == '0000-00-00') { ?> 
+                        <a class="btn btn-success" href="proc/acc_sidang.php?mhs=<?= $mhs_username ?>" role="button" onclick="return confirm('Acc mahasiswa <?=  $qq['mhs_nama'] ?> ?')">Acc Sidang&nbsp<i class="fa fa-check"></i></a>
+                    <?php } else { ?>
+                        <a class="btn btn-danger" href="proc/cancel_sidang.php?mhs=<?= $mhs_username ?>" role="button" onclick="return confirm('Batal Acc mahasiswa <?=  $qq['mhs_nama'] ?> ?')"> Batal Acc Sidang&nbsp<i class="fa fa-close"></i></a>
+                    <?php } ?>
+                </div>
+                <?php endforeach ?>
             </div>
             <table class="table table-striped mt-4">
                 <thead class="thead-dark">
@@ -84,7 +95,7 @@
                         <th class="col-2" scope="col">Tanggal</th>
                         <th class="col-4" scope="col">Keterangan Mahasiswa</th>
                         <th class="col-4" scope="col">Komentar Dosen</th>
-                        <th class="col-2" scope="col">Action</th>
+                        <th class="col-1" scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>

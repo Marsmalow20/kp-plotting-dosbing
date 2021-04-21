@@ -3,13 +3,13 @@
 
     $user = $_SESSION['login'];
 
-    $sql= "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE bimbingan.dosen_username = '$user'";
+    $sql= "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.tgl_acc, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE bimbingan.dosen_username = '$user'";
 
     if (isset($_POST['keyword'])) {
         $keyword = $_POST['keyword'];
-        $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE dosen.dosen_username = '$user' AND (mhs.mhs_username LIKE '%$keyword%' OR mhs.mhs_nama LIKE '%$keyword%' OR dosen.dosen_nama LIKE '%$keyword%')";
+        $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.tgl_acc, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE dosen.dosen_username = '$user' AND (mhs.mhs_username LIKE '%$keyword%' OR mhs.mhs_nama LIKE '%$keyword%' OR dosen.dosen_nama LIKE '%$keyword%')";
         if ($_POST['keyword'] == '') {
-            $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE bimbingan.dosen_username = '$user'";
+            $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.tgl_acc, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE bimbingan.dosen_username = '$user'";
         }
     }
     
@@ -97,17 +97,24 @@
                         <th scope="col">NIM</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Jumlah Log Bimbingan</th>
+                        <th scope="col">Tanggal Acc</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         foreach($q as $data):
+                            if($data['tgl_acc'] == '0000-00-00') {
+                                $tgl_acc = 'On-progress';
+                            } else {
+                                $tgl_acc = date('d M Y', strtotime($data['tgl_acc']));
+                            }
                     ?>
                     <tr>
                         <th scope="row"><?= $data['mhs_username'] ?></th>
                         <td><?= $data['mhs_nama'] ?></td>
                         <td><?= $data['jml_log'] ?></td>
+                        <td><?= $tgl_acc ?></td>
                         <td>
                             <a href="dosen_log_bimbingan.php?mhs=<?= $data['mhs_username'] ?>"><i class="fa fa-info-circle" style="font-size: 25px;" title="Info"></i></a>
                         </td>
