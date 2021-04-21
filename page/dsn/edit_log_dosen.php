@@ -1,19 +1,10 @@
 <?php
     include "../../config/koneksi.php";
-
-    $user = $_SESSION['login'];
-
-    $sql= "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE bimbingan.dosen_username = '$user'";
-
-    if (isset($_POST['keyword'])) {
-        $keyword = $_POST['keyword'];
-        $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE dosen.dosen_username = '$user' AND (mhs.mhs_username LIKE '%$keyword%' OR mhs.mhs_nama LIKE '%$keyword%' OR dosen.dosen_nama LIKE '%$keyword%')";
-        if ($_POST['keyword'] == '') {
-            $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE bimbingan.dosen_username = '$user'";
-        }
-    }
     
-    $q= mysqli_query($con,$sql);
+    $log_id = $_GET['log_id'];
+
+    $sql = "SELECT * FROM log WHERE log_id = '$log_id'";
+    $q = mysqli_query($con, $sql);
 
     $sql = "SELECT * FROM dosen WHERE dosen_username = ?";
     $stat = $pdo->prepare($sql);
@@ -77,46 +68,51 @@
         </nav>
 
         <div class="container mt-3">
-            <h3>List Mahasiswa Bimbingan</h3>
-            <div class="row justify-content-between">
-                <div class="col-2">
-                    
-                </div>
-                <div class="col-4">
-                    <form action="" method="POST">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="keyword" placeholder="Cari Mahasiswa" autocomplete="off">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Search</button>
-                        </div>
-                    </form>
-                </div>
+            <div class="container mt-3">
+                <h3>Edit Log Bimbingan KP</h3>
+                <form action="proc/update_log_dosen.php" method="POST">
+                    <?php foreach($q as $qq): ?>
+                        <table class="table table-striped mt-4">
+                            <thead class="thead-dark">
+                                <tr class="">
+                                    <th class="" scope="col">No</th>
+                                    <th class="" scope="col">Tanggal</th>
+                                    <th class="" scope="col">Keterangan Mahasiswa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $i = 1;
+                                ?>
+                                <tr class="">
+                                    <th class="" scope="row"><?= $i++ ?></th>
+                                    <td class=""><?= date('d M Y', strtotime($qq["tgl"])) ?></td>
+                                    <td class=""><?= $qq['ket'] ?></td>
+                                </tr>
+                                <?php
+                                ?>
+                            </tbody>
+                        </table>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="log_id" value="<?= $qq['log_id'] ?>" id="log_id" autocomplete="off" hidden>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="mhs_username" value="<?= $qq['mhs_username'] ?>" id="mhs_username" autocomplete="off" hidden>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="date" name="tgl" id="tgl" value="<?= $qq['tgl'] ?>" hidden>
+                    </div>
+                    <div class="form-floating my-3">
+                        <textarea class="form-control" placeholder="Masukan keterangan bimbingan" name="ket" id="floatingTextarea" hidden><?= $qq['ket'] ?></textarea>
+                    </div>
+                    <div class="form-floating my-3">
+                        <label for="floatingTextarea2">Komentar Dosen</label>
+                        <textarea class="form-control" placeholder="Masukan komentar" name="komentar" id="floatingTextarea2"><?= $qq['komentar'] ?></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <?php endforeach ?>
+                </form>
             </div>
-            <table class="table table-striped mt-4">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Jumlah Log Bimbingan</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        foreach($q as $data):
-                    ?>
-                    <tr>
-                        <th scope="row"><?= $data['mhs_username'] ?></th>
-                        <td><?= $data['mhs_nama'] ?></td>
-                        <td><?= $data['dosen_nama'] ?></td>
-                        <td>
-                            <a href="dosen_log_bimbingan.php?mhs=<?= $data['mhs_username'] ?>"><i class="fa fa-info-circle" style="font-size: 25px;" title="Info"></i></a>
-                        </td>
-                    </tr>
-                    <?php
-                        endforeach;
-                    ?>
-                </tbody>
-            </table>
         </div>
 
         <!-- Optional JavaScript -->
