@@ -1,12 +1,12 @@
 <?php
     include "../../config/koneksi.php";
-    $sql= "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username";
+    $sql= "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.domisili_kp, mhs.tgl_input_kp, mhs.tgl_acc,dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username ORDER BY tgl_input_kp, tgl_acc DESC";
 
     if (isset($_POST['keyword'])) {
         $keyword = $_POST['keyword'];
-        $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE mhs.mhs_username LIKE '%$keyword%' OR mhs.mhs_nama LIKE '%$keyword%' OR dosen.dosen_nama LIKE '%$keyword%'";
+        $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.domisili_kp, mhs.tgl_input_kp, mhs.tgl_acc,dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE mhs.mhs_username LIKE '%$keyword%' OR mhs.mhs_nama LIKE '%$keyword%' OR dosen.dosen_nama LIKE '%$keyword%' ORDER BY tgl_input_kp, tgl_acc DESC";
         if ($_POST['keyword'] == '') {
-            $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username";
+            $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.domisili_kp, mhs.tgl_input_kp, mhs.tgl_acc,dosen.dosen_username, dosen.dosen_nama FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username ORDER BY tgl_input_kp, tgl_acc DESC";
         }
     }
     
@@ -94,17 +94,26 @@
                         <th scope="col">NIM</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Pembimbing</th>
+                        <th scope="col">Input KP</th>
+                        <th scope="col">Tanggal Acc</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         foreach($q as $data):
+                            if($data['tgl_acc'] == '0000-00-00') {
+                                $tgl_acc = 'On-progress';
+                            } else {
+                                $tgl_acc = date('d M Y', strtotime($data['tgl_acc']));
+                            }
                     ?>
                     <tr>
                         <th scope="row"><?= $data['mhs_username'] ?></th>
                         <td><?= $data['mhs_nama'] ?></td>
                         <td><?= $data['dosen_nama'] ?></td>
+                        <td><?= date('d M Y', strtotime($data['tgl_input_kp'])) ?></td>
+                        <td><?= $tgl_acc ?></td>
                         <td>
                             <a href="edit_mhs.php?mhs=<?= $data['mhs_username'] ?>&dosen=<?= $data['dosen_username'] ?>"><i class="fa fa-edit" style="font-size: 25px;" title="Edit"></i></a>
                             <a href="proc/delete_mhs.php?mhs=<?= $data['mhs_username'] ?>" onclick="return confirm('Hapus Mahasiswa <?= $data['mhs_nama'] ?> ?')"><i class="fa fa-trash" style="font-size: 25px;" title="Delete"></i></a>
