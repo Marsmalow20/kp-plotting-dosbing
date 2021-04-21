@@ -79,8 +79,8 @@
                     <tr class="d-flex">
                         <th class="col-1" scope="col">No</th>
                         <th class="col-2" scope="col">Tanggal</th>
-                        <th class="col-4" scope="col">Keterangan</th>
-                        <th class="col-4" scope="col">Komentar</th>
+                        <th class="col-4" scope="col">Keterangan Mahasiswa</th>
+                        <th class="col-4" scope="col">Komentar Dosen</th>
                         <th class="col-2" scope="col">Action</th>
                     </tr>
                 </thead>
