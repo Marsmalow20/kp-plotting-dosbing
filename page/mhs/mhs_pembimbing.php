@@ -1,16 +1,22 @@
 <?php
     include "../../config/koneksi.php";
 
+    $user = $_SESSION["login"];
+
     $sql = "SELECT * FROM mhs WHERE mhs_username = ?";
     $stat = $pdo->prepare($sql);
     $res = array($_SESSION['login']);
     $stat->execute($res);
     $data = $stat->fetchAll();
-
+    
     $sql3 = "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username,dosen.dosen_nama FROM mhs, bimbingan, dosen WHERE mhs.mhs_username = bimbingan.mhs_username AND bimbingan.dosen_username = dosen.dosen_username AND mhs.mhs_username = ?";
     $stat3 = $pdo->prepare($sql3);
     $stat3->execute($res);
     $data3 = $stat3->fetchAll();
+
+    $coba = "SELECT mhs.mhs_username, mhs.mhs_nama, dosen.dosen_username,dosen.dosen_nama FROM mhs, bimbingan, dosen WHERE mhs.mhs_username = bimbingan.mhs_username AND bimbingan.dosen_username = dosen.dosen_username AND mhs.mhs_username = '$user'";
+    $q = mysqli_query($con, $coba);
+    $result = mysqli_num_rows($q);
 
     $sql4 = "SELECT mhs_username, (SELECT dosen_nama FROM dosen WHERE dosen_username = dosen1) as satu, (SELECT dosen_nama FROM dosen WHERE dosen_username = dosen2) as dua, (SELECT dosen_nama FROM dosen WHERE dosen_username = dosen3) as tiga FROM pilihan WHERE mhs_username = ?";
     $stat4 = $pdo->prepare($sql4);
@@ -81,7 +87,12 @@
                             <?php endforeach ?>
                         </div>
                         <div class="card-footer text-muted">
-                            <a class="btn btn-primary" href="input_pembimbing.php" role="button">Input Dosen Pembimbing</a>
+                        <?=
+                            ($result <= 0 ?
+                            '<a class="btn btn-primary" href="input_pembimbing.php" role="button">Input Dosen Pembimbing</a>' :
+                            '<a class="btn btn-primary disabled" href="input_pembimbing.php" role="button">Input Dosen Pembimbing</a>')
+                        ?>
+                        
                         </div>
                     </div>
                 </div>
