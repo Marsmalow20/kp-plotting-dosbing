@@ -58,8 +58,8 @@
             <div class="col-4">
                 <div class="list-group border-primary">
                     <a href="mhs_pembimbing.php" class="list-group-item list-group-item-action list-group-item-primary">Dosen Pembimbing</a>
-                    <a href="mhs_log_bimbingan.php" class="list-group-item list-group-item-action list-group-item-success">Log Bimbingan</a>
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Bimbingan - LINK KOSONG</a>
+                    <a href="input_objek_kp.php" class="list-group-item list-group-item-action list-group-item-success">Objek KP</a>
+                    <a href="mhs_log_bimbingan.php" class="list-group-item list-group-item-action list-group-item-warning">Log Bimbingan</a>
                     <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Log Bimbingan - LINK KOSONG</a>
                 </div>
             </div>

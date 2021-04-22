@@ -94,6 +94,7 @@
                         <th scope="col">NIM</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Pembimbing</th>
+                        <th scope="col">Domisili KP</th>
                         <th scope="col">Input KP</th>
                         <th scope="col">Tanggal Acc</th>
                         <th scope="col">Action</th>
@@ -112,6 +113,7 @@
                         <th scope="row"><?= $data['mhs_username'] ?></th>
                         <td><?= $data['mhs_nama'] ?></td>
                         <td><?= $data['dosen_nama'] ?></td>
+                        <td><?= $data['domisili_kp'] ?></td>
                         <td><?= date('d M Y', strtotime($data['tgl_input_kp'])) ?></td>
                         <td><?= $tgl_acc ?></td>
                         <td>
