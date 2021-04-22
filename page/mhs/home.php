@@ -5,6 +5,8 @@
         header("Location: ../../index.php");
     }
 
+    $user = $_SESSION['login'];
+
     $sql = "SELECT * FROM mhs WHERE mhs_username = ?";
     $stat = $pdo->prepare($sql);
     $res = array($_SESSION['login']);
@@ -60,7 +62,7 @@
                     <a href="mhs_pembimbing.php" class="list-group-item list-group-item-action list-group-item-primary">Dosen Pembimbing</a>
                     <a href="input_objek_kp.php" class="list-group-item list-group-item-action list-group-item-success">Objek KP</a>
                     <a href="mhs_log_bimbingan.php" class="list-group-item list-group-item-action list-group-item-warning">Log Bimbingan</a>
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Log Bimbingan - LINK KOSONG</a>
+                    <a href="input_sidang.php" class="list-group-item list-group-item-action list-group-item-danger">Daftar Sidang KP</a>
                 </div>
             </div>
         </div>
