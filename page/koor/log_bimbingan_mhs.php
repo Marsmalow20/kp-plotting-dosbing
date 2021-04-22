@@ -1,19 +1,13 @@
 <?php
     include "../../config/koneksi.php";
-
-    $user = $_SESSION['login'];
-
-    $sql= "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.tgl_acc, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE bimbingan.dosen_username = '$user'";
-
-    if (isset($_POST['keyword'])) {
-        $keyword = $_POST['keyword'];
-        $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.tgl_acc, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE dosen.dosen_username = '$user' AND (mhs.mhs_username LIKE '%$keyword%' OR mhs.mhs_nama LIKE '%$keyword%' OR dosen.dosen_nama LIKE '%$keyword%')";
-        if ($_POST['keyword'] == '') {
-            $sql = "SELECT mhs.mhs_username, mhs.mhs_nama, mhs.tgl_acc, dosen.dosen_username, dosen.dosen_nama, (SELECT COUNT(log_id) FROM log WHERE log.mhs_username = mhs.mhs_username) as jml_log FROM mhs LEFT JOIN bimbingan ON mhs.mhs_username = bimbingan.mhs_username LEFT JOIN dosen ON bimbingan.dosen_username = dosen.dosen_username WHERE bimbingan.dosen_username = '$user'";
-        }
-    }
     
-    $q= mysqli_query($con,$sql);
+    $mhs_username = $_GET['mhs'];
+
+    $sql = "SELECT * FROM log WHERE mhs_username = '$mhs_username'";
+    $q = mysqli_query($con, $sql);
+
+    $sql2 = "SELECT mhs_nama, tgl_acc FROM mhs WHERE mhs_username = '$mhs_username'";
+    $q2 = mysqli_query($con, $sql2);
 
     $sql = "SELECT * FROM dosen WHERE dosen_username = ?";
     $stat = $pdo->prepare($sql);
@@ -77,47 +71,35 @@
         </nav>
 
         <div class="container mt-3">
-            <h3>List Mahasiswa Bimbingan</h3>
-            <div class="row justify-content-between">
-                <div class="col-2">
-                    
+            <h3>Log Bimbingan KP Mahasiswa : </h3>
+            <div class="row justify-content-between mt-3">
+                <?php foreach($q2 as $qq): ?>
+                <div class="col-6">
+                    <h4 class="text-secondary">
+                        <?=  $qq['mhs_nama'] . " - " . $mhs_username ?>
+                    </h4>
                 </div>
-                <div class="col-4">
-                    <form action="" method="POST">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="keyword" placeholder="Cari Mahasiswa" autocomplete="off">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Search</button>
-                        </div>
-                    </form>
-                </div>
+                <?php endforeach ?>
             </div>
             <table class="table table-striped mt-4">
                 <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">NIM</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Jumlah Log Bimbingan</th>
-                        <th scope="col">Tanggal Acc</th>
-                        <th scope="col">Action</th>
+                    <tr class="d-flex">
+                        <th class="col-1" scope="col">No</th>
+                        <th class="col-2" scope="col">Tanggal</th>
+                        <th class="col-4" scope="col">Keterangan Mahasiswa</th>
+                        <th class="col-5" scope="col">Komentar Dosen</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
+                        $i = 1;
                         foreach($q as $data):
-                            if($data['tgl_acc'] == '0000-00-00') {
-                                $tgl_acc = 'On-progress';
-                            } else {
-                                $tgl_acc = date('d M Y', strtotime($data['tgl_acc']));
-                            }
                     ?>
-                    <tr>
-                        <th scope="row"><?= $data['mhs_username'] ?></th>
-                        <td><?= $data['mhs_nama'] ?></td>
-                        <td><?= $data['jml_log'] ?></td>
-                        <td><?= $tgl_acc ?></td>
-                        <td>
-                            <a href="dosen_log_bimbingan.php?mhs=<?= $data['mhs_username'] ?>"><i class="fa fa-info-circle" style="font-size: 25px;" title="Info Bimbingan"></i></a>
-                        </td>
+                    <tr class="d-flex">
+                        <th class="col-1" scope="row"><?= $i++ ?></th>
+                        <td class="col-2"><?= date('d M Y', strtotime($data["tgl"])) ?></td>
+                        <td class="col-4"><?= $data['ket'] ?></td>
+                        <td class="col-4"><?= $data['komentar'] ?></td>
                     </tr>
                     <?php
                         endforeach;
