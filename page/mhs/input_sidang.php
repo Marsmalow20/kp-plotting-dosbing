@@ -36,7 +36,7 @@
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="img/Picture18.png" />
-        <title>Dosen</title>
+        <title>Daftar Sidang KP</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -78,14 +78,14 @@
         <div class="container mt-3">
             <div class="container mt-3">
                 <h3>Input Log Bimbingan KP</h3>
-                <form action="proc/simpan_domisili_kp.php" method="POST" enctype="">
+                <form action="proc/simpan_sidang.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="mhs_username">NIM</label>
                         <input class="form-control" type="text" name="mhs_username" value="<?= $user ?>" id="mhs_username" autocomplete="off" readonly>
                     </div>
                     <div class="my-3">
                         <label for="formFile" class="form-label">Berkas Syarat Ujian</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" name="berkas" id="formFile" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
