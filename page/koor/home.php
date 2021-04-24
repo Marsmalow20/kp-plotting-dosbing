@@ -60,7 +60,7 @@
                     <a href="list_dosen.php" class="list-group-item list-group-item-action list-group-item-primary">Dosen</a>
                     <a href="list_mhs.php" class="list-group-item list-group-item-action list-group-item-success">Mahasiswa</a>
                     <a href="list_bimbingan_mhs.php" class="list-group-item list-group-item-action list-group-item-warning">Log Bimbingan</a>
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Log Bimbingan - LINK KOSONG</a>
+                    <a href="daftar_sidang.php" class="list-group-item list-group-item-action list-group-item-danger">Pendaftaran Sidang KP</a>
                 </div>
             </div>
         </div>
