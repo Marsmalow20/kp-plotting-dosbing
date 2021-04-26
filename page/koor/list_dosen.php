@@ -114,7 +114,6 @@
                         <td>
                             <a href="edit_dosen.php?dosen_username=<?= $data['dosen_username'] ?>"><i class="fa fa-edit" style="font-size: 25px;" title="Edit"></i></a>
                             <a href="proc/delete_dosen.php?dosen_username=<?= $data['dosen_username'] ?>" onclick="return confirm('Hapus Dosen <?= $data['dosen_nama'] ?> ?')"><i class="fa fa-trash" style="font-size: 25px;" title="Delete"></i></a>
-                            <a href=""><i class="fa fa-info-circle" style="font-size: 25px;" title="Info"></i></a>
                         </td>
                     </tr>
                     <?php

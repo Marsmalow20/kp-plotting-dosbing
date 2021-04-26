@@ -28,7 +28,7 @@
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="img/Picture18.png" />
-        <title>Dosen</title>
+        <title>Mahasiswa</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
