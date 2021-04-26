@@ -74,11 +74,11 @@
                     </div>
                     <div class="form-group">
                         <label for="tgl">Tanggal Bimbingan</label>
-                        <input class="form-control" type="date" name="tgl" id="tgl">
+                        <input class="form-control" type="date" name="tgl" id="tgl" required autofocus>
                     </div>
                     <div class="form-floating my-3">
                         <label for="floatingTextarea">Keterangan</label>
-                        <textarea class="form-control" placeholder="Masukan keterangan bimbingan" name="ket" id="floatingTextarea"></textarea>
+                        <textarea class="form-control" placeholder="Masukan keterangan bimbingan" name="ket" id="floatingTextarea" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

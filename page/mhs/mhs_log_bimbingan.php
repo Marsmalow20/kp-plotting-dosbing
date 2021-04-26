@@ -73,6 +73,9 @@
                 <div class="col-2">
                     <a class="btn btn-success" href="input_log.php" role="button"><i class="fa fa-plus"></i>&nbspTambah</a>
                 </div>
+                <div class="col-3">
+                    <a class="btn btn-outline-info" onclick="window.open('proc/cetak_log.php?mhs=<?= $user ?>')"  role="button">Cetak Log Bimbingan&nbsp<i class="fa fa-print"></i></a>
+                </div>
             </div>
 
             <table class="table table-striped mt-4">
@@ -98,7 +101,6 @@
                         <td class="col-2">
                             <a href="edit_log.php?log_id=<?= $data['log_id'] ?>"><i class="fa fa-edit" style="font-size: 25px;" title="Edit"></i></a>
                             <a href="proc/mhs.php?mhs=<?= $data['mhs_username'] ?>" onclick="return confirm('Hapus Mahasiswa <?= $data['mhs_nama'] ?> ?')"><i class="fa fa-trash" style="font-size: 25px;" title="Delete"></i></a>
-                            <a href=""><i class="fa fa-info-circle" style="font-size: 25px;" title="Info"></i></a>
                         </td>
                     </tr>
                     <?php
