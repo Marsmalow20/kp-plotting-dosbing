@@ -45,17 +45,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" href="../home.php">Home <span class="sr-only">(current)</span></a>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Dosen
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="dosen.php">List Dosen</a>
-                            <a class="dropdown-item" href="dosen_input.php">Input Dosen</a>
-                            </div>
-                        </li>
-                        <a class="nav-link active" href="#">Mahasiswa</a>
+                        <a class="nav-link" href="home.php">Home <span class="sr-only"></span></a>
+                        <a class="nav-link" href="list_dosen.php">Dosen <span class="sr-only"></span></a>
+                        <a class="nav-link" href="list_mhs.php">Mahasiswa</a>
+                        <a class="nav-link" href="list_bimbingan_mhs.php">Bimbingan</a>
+                        <a class="nav-link active" href="daftar_sidang.php">Pendaftaran Sidang</a>
                     </div>
                 </div>
                 <?php foreach($data as $dt): ?>
@@ -65,7 +59,8 @@
                             <?= $dt['dosen_nama']?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="../../config/logout.php"><i class="fa fa-power-off" style="color: #aaa;"></i> &nbspLogout</a>
+                            <a class="dropdown-item" href="../dsn/password.php"><i class="fa fa-key" style="color: #aaa;"></i> &nbspUbah Password</a>
+                            <a class="dropdown-item" href="../../config/logout.php"><i class="fa fa-power-off" style="color: #aaa;"></i> &nbspLogout</a>
                         </div>
                     </li>
                 </ul>

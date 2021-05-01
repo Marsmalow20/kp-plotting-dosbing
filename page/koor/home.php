@@ -57,11 +57,11 @@
 
         <div class="row justify-content-center mt-4">
             <div class="col-4">
-                <div class="list-group border-primary">
-                    <a href="list_dosen.php" class="list-group-item list-group-item-action list-group-item-primary">Dosen</a>
-                    <a href="list_mhs.php" class="list-group-item list-group-item-action list-group-item-success">Mahasiswa</a>
-                    <a href="list_bimbingan_mhs.php" class="list-group-item list-group-item-action list-group-item-warning">Log Bimbingan</a>
-                    <a href="daftar_sidang.php" class="list-group-item list-group-item-action list-group-item-danger">Pendaftaran Sidang KP</a>
+                <div class="list-group">
+                    <a href="list_dosen.php" class="list-group-item list-group-item-action list-group-item-secondary text-dark">Dosen</a>
+                    <a href="list_mhs.php" class="list-group-item list-group-item-action list-group-item-light text-dark">Mahasiswa</a>
+                    <a href="list_bimbingan_mhs.php" class="list-group-item list-group-item-action list-group-item-secondary text-dark">Log Bimbingan</a>
+                    <a href="daftar_sidang.php" class="list-group-item list-group-item-action list-group-item-light text-dark">Pendaftaran Sidang KP</a>
                 </div>
             </div>
         </div>

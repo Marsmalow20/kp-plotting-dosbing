@@ -1,15 +1,3 @@
-<?php
-    // include "config/koneksi.php";
-    // if(isset($_SESSION['login'])){
-    //     if($_SESSION['login'] === 'koordinator') {
-    //         header('Location: home.php');
-    //     } else if($_SESSION['login'] !== 'koordinator') {
-    //         header('Location: home_mahasiswa.php');
-    //     }
-    //     exit;
-    // }
-?>
-
 <!doctype html>
 <html lang="en">
     <head>
