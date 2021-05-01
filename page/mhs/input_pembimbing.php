@@ -40,10 +40,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" href="../home_mahasiswa.php">Home</a>
-                        <a class="nav-link active" href="#">Data Diri <span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="mahasiswa_pilihan.php">Dosen Pembimbing<span class="sr-only"></span></a>
-                        <a class="nav-link" href="mahasiswa_objekkp.php">Objek KP<span class="sr-only"></span></a>
+                        <a class="nav-link" href="home.php">Home</a>
+                        <a class="nav-link active" href="mhs_pembimbing.php">Dosen Pembimbing <span class="sr-only"></span></a>
+                        <a class="nav-link" href="input_objek_kp.php">Objek KP<span class="sr-only"></span></a>
+                        <a class="nav-link" href="mhs_log_bimbingan.php">Log Bimbingan<span class="sr-only"></span></a>
+                        <a class="nav-link" href="sidang.php">Daftar Sidang KP<span class="sr-only"></span></a>
                     </div>
                 </div>
                 <ul class="navbar-nav">
@@ -53,7 +54,7 @@
                             <?= $dt['mhs_nama'] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item"><?= $dt['mhs_username']?></a>
+                            <a class="dropdown-item" href="password.php"><i class="fa fa-key" style="color: #aaa;"></i> &nbspUbah Password</a>
                             <a class="dropdown-item" href="../../config/logout.php"><i class="fa fa-power-off" style="color: #aaa;"></i> &nbspLogout</a>
                         </div>
                         <?php endforeach; ?>

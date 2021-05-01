@@ -59,11 +59,11 @@
 
         <div class="row justify-content-center mt-4">
             <div class="col-4">
-                <div class="list-group border-primary">
-                    <a href="mhs_pembimbing.php" class="list-group-item list-group-item-action list-group-item-primary">Dosen Pembimbing</a>
-                    <a href="input_objek_kp.php" class="list-group-item list-group-item-action list-group-item-success">Objek KP</a>
-                    <a href="mhs_log_bimbingan.php" class="list-group-item list-group-item-action list-group-item-warning">Log Bimbingan</a>
-                    <a href="sidang.php" class="list-group-item list-group-item-action list-group-item-danger">Daftar Sidang KP</a>
+                <div class="list-group">
+                    <a href="mhs_pembimbing.php" class="list-group-item list-group-item-action list-group-item-secondary text-dark">Dosen Pembimbing</a>
+                    <a href="input_objek_kp.php" class="list-group-item list-group-item-action list-group-item-light text-dark">Objek KP</a>
+                    <a href="mhs_log_bimbingan.php" class="list-group-item list-group-item-action list-group-item-secondary text-dark">Log Bimbingan</a>
+                    <a href="sidang.php" class="list-group-item list-group-item-action list-group-item-light text-dark">Daftar Sidang KP</a>
                 </div>
             </div>
         </div>
