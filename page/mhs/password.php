@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password_lama">Password Lama</label>
-                        <input class="form-control" type="password" name="password_lama" placeholder="Password Lama" onkeyup="check()" id="password_lama" autocomplete="off" required>
+                        <input class="form-control" type="password" name="password_lama" placeholder="Password Lama" id="password_lama" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password Baru</label>
