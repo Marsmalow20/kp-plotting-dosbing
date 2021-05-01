@@ -60,7 +60,7 @@
                             <?= $dt['dosen_nama']?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="../dsn/password.php"><i class="fa fa-key" style="color: #aaa;"></i> &nbspUbah Password</a>
+                            <a class="dropdown-item" href="password.php"><i class="fa fa-key" style="color: #aaa;"></i> &nbspUbah Password</a>
                             <a class="dropdown-item" href="../../config/logout.php"><i class="fa fa-power-off" style="color: #aaa;"></i> &nbspLogout</a>
                         </div>
                     </li>
