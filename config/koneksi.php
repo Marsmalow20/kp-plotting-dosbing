@@ -14,4 +14,7 @@
 
     header("Access-Control-Allow-Origin: *");
     $con = mysqli_connect($host, $username, $password, $dbname) or die ('could not connect to database');
-?>
+
+    if(!isset($_SESSION['login'])) {
+        header('Location: ../index.php');
+    }
