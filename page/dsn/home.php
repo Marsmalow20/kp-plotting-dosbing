@@ -57,11 +57,8 @@
 
         <div class="row justify-content-center mt-4">
             <div class="col-4">
-                <div class="list-group border-primary">
-                    <a href="list_mhs_bimbingan.php" class="list-group-item list-group-item-action list-group-item-primary">Mahasiswa Bimbingan</a>
-                    <a href="list_mhs.php" class="list-group-item list-group-item-action list-group-item-success">Mahasiswa - LINK KOSONG</a>
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Bimbingan - LINK KOSONG</a>
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Log Bimbingan - LINK KOSONG</a>
+                <div class="list-group">
+                    <a href="list_mhs_bimbingan.php" class="list-group-item list-group-item-action list-group-item-secondary text-dark">Mahasiswa Bimbingan</a>
                 </div>
             </div>
         </div>
