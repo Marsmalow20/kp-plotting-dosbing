@@ -69,10 +69,10 @@
         </nav>
 
         <div class="container mt-3">
-            <h3>List Mahasiswa</h3>
+            <h3>Pendaftaran Sidang Mahasiswa</h3>
             <div class="row justify-content-between">
                 <div class="col-2">
-                    <a class="btn btn-success" href="input_mhs.php" role="button"><i class="fa fa-plus"></i>&nbspTambah</a>
+                    
                 </div>
                 <div class="col-4">
                     <form action="" method="POST">

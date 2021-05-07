@@ -95,7 +95,6 @@
                         <td class="col-4"><?= $data['komentar'] ?></td>
                         <td class="col-2">
                             <a href="edit_log.php?log_id=<?= $data['log_id'] ?>"><i class="fa fa-edit" style="font-size: 25px;" title="Edit"></i></a>
-                            <a href="proc/mhs.php?mhs=<?= $data['mhs_username'] ?>" onclick="return confirm('Hapus Mahasiswa <?= $data['mhs_nama'] ?> ?')"><i class="fa fa-trash" style="font-size: 25px;" title="Delete"></i></a>
                         </td>
                     </tr>
                     <?php
