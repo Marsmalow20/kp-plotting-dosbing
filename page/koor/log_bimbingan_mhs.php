@@ -42,7 +42,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link" href="home.php">Home <span class="sr-only"></span></a>
                         <a class="nav-link" href="list_dosen.php">Dosen <span class="sr-only"></span></a>
                         <a class="nav-link active" href="list_mhs.php">Mahasiswa</a>
                         <a class="nav-link" href="list_bimbingan_mhs.php">Bimbingan</a>

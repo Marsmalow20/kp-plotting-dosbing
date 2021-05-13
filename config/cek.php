@@ -20,14 +20,14 @@
     if($user) {
         if($login_as == 'mahasiswa') {
             $_SESSION['login'] = $user['mhs_username'];
-            header('Location: ../page/mhs/home.php');
+            header('Location: ../page/mhs/mhs_pembimbing.php');
         } else {
             $_SESSION['login'] = $user['dosen_username'];
-            header('Location: ../page/dsn/home.php');
+            header('Location: ../page/dsn/list_mhs_bimbingan.php');
         }
 
         if($_SESSION['login'] == 'koor') {
-            header('Location: ../page/koor/home.php');
+            header('Location: ../page/koor/list_dosen.php');
         }
     } else {
         echo "
