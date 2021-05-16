@@ -69,8 +69,8 @@
             </div>
         </nav>
 
-        <div class="container mt-3">
-            <h3>Edit Mahasiswa</h3>
+        <div class="container mt-3 col-lg-4">
+            <h3 class="my-4">Edit Mahasiswa</h3>
             <?php
                 foreach($q as $data):
             ?>
@@ -98,7 +98,10 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class=" my-2 float-right">
+                    <a class="btn btn-danger" href="list_mhs.php" role="button">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
             <?php
                 endforeach;

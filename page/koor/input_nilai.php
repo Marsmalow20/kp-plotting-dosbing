@@ -61,8 +61,8 @@
             </div>
         </nav>
 
-        <div class="container mt-3">
-            <h3>Input Nilai Mahasiswa</h3>
+        <div class="container mt-3 col-lg-4">
+            <h3 class="my-4">Input Nilai Mahasiswa</h3>
             <form action="proc/simpan_nilai.php" method="POST">
                 <?php foreach($q as $qq): ?>
                 <div class="form-group">
@@ -81,7 +81,10 @@
                     <label for="nilai_penguji">Nilai Penguji</label>
                     <input class="form-control" type="number" placeholder="Nilai Penguji" name="nilai_penguji" value="<?= $qq['nilai_penguji'] ?>" min="0" max="100" id="nilai_penguji" autocomplete="off">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class=" my-2 float-right">
+                    <a class="btn btn-danger" href="daftar_sidang.php" role="button">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
                 <?php endforeach ?>
             </form>
         </div>

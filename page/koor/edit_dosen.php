@@ -60,8 +60,8 @@
             </div>
         </nav>
 
-        <div class="container mt-3">
-            <h3>Edit Dosen</h3>
+        <div class="container mt-3 col-lg-4">
+            <h3 class="my-4">Edit Dosen</h3>
             <?php foreach($q as $data): ?>
             <form action="proc/update_dosen.php" method="POST">
                 <div class="form-group">
@@ -77,7 +77,10 @@
                     <input type="number" class="form-control" placeholder="Kuota Max Mahasiswa" name="dosen_kuota" value="<?= $data['dosen_kuota'] ?>" id="dosen_kuota" min="0">
                 </div>
                 <small id="passwordHelp" class="form-text text-muted my-2">* Password : 'default'</small>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class=" my-2 float-right">
+                    <a class="btn btn-danger" href="list_dosen.php" role="button">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
             <?php endforeach; ?>
         </div>

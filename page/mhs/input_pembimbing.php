@@ -62,9 +62,10 @@
             </div>
         </nav>
 
-        <div class="container mt-3">
-            <h3>Input Dosen Pembimbing</h3>
+        <div class="container mt-3 col-lg-4">
+            <h3 class="my-4">Input Dosen Pembimbing</h3>
             <form action="proc/simpan_pembimbing.php" method="POST" id="form">
+                <label class="text-secondary" for="mhs_username" style="font-size: .8em;">NIM</label>
                 <input class="form-control" type="text" placeholder="" name="mhs_username" id="mhs_username" autocomplete="off" value="<?= $user ?>" readonly>
                 <div class="form-group">
                     <label class="text-secondary" for="dosen1" style="font-size: .8em;">Dosen 1</label>
@@ -93,7 +94,10 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class=" my-2 float-right">
+                    <a class="btn btn-danger" href="mhs_pembimbing.php" role="button">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
 

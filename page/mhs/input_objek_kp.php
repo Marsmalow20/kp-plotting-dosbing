@@ -58,21 +58,21 @@
             </div>
         </nav>
 
-        <div class="container mt-3">
-            <div class="container mt-3">
-                <h3>Input Log Bimbingan KP</h3>
-                <form action="proc/simpan_domisili_kp.php" method="POST">
-                    <div class="form-group">
-                        <label for="mhs_username">NIM</label>
-                        <input class="form-control" type="text" name="mhs_username" value="<?= $user ?>" id="mhs_username" autocomplete="off" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="domisili_kp">Domisili KP</label>
-                        <input class="form-control" type="text" name="domisili_kp" value="<?php foreach($data as $dt): ?><?= $dt['domisili_kp']?><?php endforeach ?>" placeholder="Domisili KP (Kota)" id="domisili_kp" autocomplete="off" required>
-                    </div>
+        <div class="container mt-3 col-lg-4">
+            <h3 class="my-4">Input Log Bimbingan KP</h3>
+            <form action="proc/simpan_domisili_kp.php" method="POST">
+                <div class="form-group">
+                    <label for="mhs_username">NIM</label>
+                    <input class="form-control" type="text" name="mhs_username" value="<?= $user ?>" id="mhs_username" autocomplete="off" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="domisili_kp">Domisili KP</label>
+                    <input class="form-control" type="text" name="domisili_kp" value="<?php foreach($data as $dt): ?><?= $dt['domisili_kp']?><?php endforeach ?>" placeholder="Domisili KP (Kota)" id="domisili_kp" autocomplete="off" required>
+                </div>
+                <div class=" my-2 float-right">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
 
         <!-- Optional JavaScript -->

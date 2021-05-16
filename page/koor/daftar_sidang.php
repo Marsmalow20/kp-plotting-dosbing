@@ -89,7 +89,7 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Pembimbing</th>
                         <th scope="col">Nilai</th>
-                        <th scope="col">Action</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -100,8 +100,8 @@
                         <td><?= $data['dosen_nama'] ?></td>
                         <td><?= number_format($data['nilai_akhir'], 2, '.', '') ?></td>
                         <td>
-                            <a href="../mhs/proc/download.php?file=<?= $data['mhs_username'] . ".zip" ?>"><i class="fa fa-download" style="font-size: 25px;" title="Download File"></i></a>
-                            <a href="input_nilai.php?mhs=<?= $data['mhs_username'] ?>"><i class="fa fa-bar-chart" style="font-size: 25px;" title="Input Nilai"></i></i></a>
+                            <a href="../mhs/proc/download.php?file=<?= $data['mhs_username'] . ".zip" ?>" class="btn btn-outline-primary"><i class="fa fa-download" style="font-size: 15px;" title="Download File"></i>&nbspDownload</a>
+                            <a href="input_nilai.php?mhs=<?= $data['mhs_username'] ?>" class="btn btn-outline-primary"><i class="fa fa-bar-chart" style="font-size: 15px;" title="Download File"></i>&nbspInput Nilai</a>
                         </td>
                     </tr>
                     <?php endforeach ?>

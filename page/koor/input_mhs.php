@@ -56,8 +56,8 @@
             </div>
         </nav>
 
-        <div class="container mt-3">
-            <h3>Input Mahasiswa</h3>
+        <div class="container mt-3 col-lg-4">
+            <h3 class="my-4">Input Mahasiswa</h3>
             <form action="proc/simpan_mhs.php" method="POST">
                 <div class="form-group">
                     <label for="mhs_username">Username</label>
@@ -68,7 +68,10 @@
                     <input class="form-control" type="text" placeholder="Nama Mahasiswa" name="mhs_nama" id="mhs_nama" autocomplete="off">
                 </div>
                 <small id="passwordHelp" class="form-text text-muted my-2">* Password : 'defaultmhs'</small>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class=" my-2 float-right">
+                    <a class="btn btn-danger" href="list_mhs.php" role="button">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
 

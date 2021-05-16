@@ -110,9 +110,6 @@
                                 <?php endforeach; ?>
                             </ul>
                         </div>
-                        <div class="card-footer text-muted">
-                            text
-                        </div>
                     </div>
                 </div>
             </div>

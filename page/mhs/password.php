@@ -58,35 +58,33 @@
             </div>
         </nav>
 
-        <div class="container mt-3">
-            <div class="container mt-3">
-                <h3>Ubah Password</h3>
-                <form action="proc/ubah_password.php" method="POST">
-                    <div class="form-group">
-                        <label for="mhs_username">NIM</label>
-                        <input class="form-control" type="text" name="mhs_username" value="<?= $user ?>" id="mhs_username" autocomplete="off" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="password_lama">Password Lama</label>
-                        <input class="form-control" type="password" name="password_lama" placeholder="Password Lama" id="password_lama" autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password Baru</label>
-                        <input class="form-control" type="password" name="password" placeholder="Password" onkeyup="check()" id="password" autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="con_password">Konfirmasi Password</label>
-                        <input class="form-control" type="password" name="konfirmasi_password" placeholder="Konfirmasi Password" onkeyup="check()" id="con_password" autocomplete="off" required>
-                    </div>
+        <div class="container mt-3 col-lg-4">
+            <h3 class="my-2">Ubah Password</h3>
+            <form action="proc/ubah_password.php" method="POST">
+                <div class="form-group">
+                    <label for="mhs_username">NIM</label>
+                    <input class="form-control" type="text" name="mhs_username" value="<?= $user ?>" id="mhs_username" autocomplete="off" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="password_lama">Password Lama</label>
+                    <input class="form-control" type="password" name="password_lama" placeholder="Password Lama" id="password_lama" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password Baru</label>
+                    <input class="form-control" type="password" name="password" placeholder="Password" onkeyup="check()" id="password" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label for="con_password">Konfirmasi Password</label>
+                    <input class="form-control" type="password" name="konfirmasi_password" placeholder="Konfirmasi Password" onkeyup="check()" id="con_password" autocomplete="off" required>
+                </div>
 
-                    <div id="pass_eight" class="form-text text-muted"><i class="fa fa-ellipsis-h" aria-hidden="true">&nbsp</i> Password minimal 8 karakter</div>
-                    <div id="pass_num" class="form-text text-muted"><i class="fa fa-ellipsis-h" aria-hidden="true">&nbsp</i> Password mengandung angka</div>
-                    <div id="pass_case" class="form-text text-muted"><i class="fa fa-ellipsis-h" aria-hidden="true">&nbsp</i> Password mengandung lowercase & uppercase</div>
-                    <div id="pass_confirm" class="form-text text-muted"><i class="fa fa-ellipsis-h" aria-hidden="true">&nbsp</i> Password harus sama dengan konfirmasi password</div>
+                <div id="pass_eight" class="form-text text-muted"><i class="fa fa-ellipsis-h" aria-hidden="true">&nbsp</i> Password minimal 8 karakter</div>
+                <div id="pass_num" class="form-text text-muted"><i class="fa fa-ellipsis-h" aria-hidden="true">&nbsp</i> Password mengandung angka</div>
+                <div id="pass_case" class="form-text text-muted"><i class="fa fa-ellipsis-h" aria-hidden="true">&nbsp</i> Password mengandung lowercase & uppercase</div>
+                <div id="pass_confirm" class="form-text text-muted"><i class="fa fa-ellipsis-h" aria-hidden="true">&nbsp</i> Password harus sama dengan konfirmasi password</div>
 
-                    <button type="submit" class="btn btn-primary mt-3 disabled" id="btn-submit">Ubah Password</button>
-                </form>
-            </div>
+                <button type="submit" class="btn btn-primary mt-3 disabled" id="btn-submit">Ubah Password</button>
+            </form>
         </div>
 
         <!-- Optional JavaScript -->

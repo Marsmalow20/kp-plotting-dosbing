@@ -14,7 +14,7 @@
             echo "
                 <script>
                     alert('Anda belum di Acc oleh dosen pembimbing untuk melakukan Sidang KP');
-                    window.location.href = 'home.php';
+                    window.location.href = 'sidang.php';
                 </script>
             ";
         }
@@ -69,21 +69,22 @@
             </div>
         </nav>
 
-        <div class="container mt-3">
-            <div class="container mt-3">
-                <h3>Input Log Bimbingan KP</h3>
-                <form action="proc/simpan_sidang.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="mhs_username">NIM</label>
-                        <input class="form-control" type="text" name="mhs_username" value="<?= $user ?>" id="mhs_username" autocomplete="off" readonly>
-                    </div>
-                    <div class="my-3">
-                        <label for="formFile" class="form-label">Berkas Syarat Ujian</label>
-                        <input class="form-control" type="file" name="berkas" id="formFile" required>
-                    </div>
+        <div class="container mt-3 col-lg-4">
+            <h3 class="my-4">Input Log Bimbingan KP</h3>
+            <form action="proc/simpan_sidang.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="mhs_username">NIM</label>
+                    <input class="form-control" type="text" name="mhs_username" value="<?= $user ?>" id="mhs_username" autocomplete="off" readonly>
+                </div>
+                <div class="my-3">
+                    <label for="formFile" class="form-label">Berkas Syarat Ujian</label>
+                    <input class="form-control" type="file" name="berkas" id="formFile" accept=".zip" required>
+                </div>
+                <div class=" my-2 float-right">
+                    <a class="btn btn-danger" href="sidang.php" role="button">Cancel</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
 
         <!-- Optional JavaScript -->
