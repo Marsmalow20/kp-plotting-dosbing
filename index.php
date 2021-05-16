@@ -18,7 +18,7 @@
                 <h3 class="text-center">Login</h3>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input class="form-control" type="text" placeholder="Username" name="username" id="username" autocomplete="off" autofocus required>
+                    <input class="form-control" type="text" placeholder="Username" name="username" id="username" maxlength="16" autocomplete="off" autofocus required>
                     <small id="nimHelp" class="form-text text-muted">Ex : A12.2017.05699</small>
                 </div>
                 <div class="form-group">

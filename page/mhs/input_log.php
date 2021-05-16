@@ -25,7 +25,7 @@
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="img/Picture18.png" />
-        <title>Dosen</title>
+        <title>Mahasiswa</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -71,8 +71,9 @@
                         <input class="form-control" type="date" name="tgl" id="tgl" required autofocus>
                     </div>
                     <div class="form-floating my-3">
-                        <label for="floatingTextarea">Keterangan</label>
-                        <textarea class="form-control" placeholder="Masukan keterangan bimbingan" name="ket" id="floatingTextarea" required></textarea>
+                        <label for="ket">Keterangan</label>
+                        <textarea class="form-control" placeholder="Masukan keterangan bimbingan" name="ket" id="ket" onkeyup="count(this.value)" maxlength="200" required></textarea>
+                        <large id="passwordHelp" class="form-text my-2">Max Character : <span id="charcount">0</span>/200</large>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -80,6 +81,17 @@
         </div>
 
         <!-- Optional JavaScript -->
+        <script>
+            const charcount = document.getElementById("charcount");
+
+            console.log();
+
+            function count(str) {
+                let leng = str.length;
+
+                charcount.innerHTML = leng;
+            }
+        </script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

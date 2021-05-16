@@ -61,7 +61,7 @@
             <form action="proc/simpan_mhs.php" method="POST">
                 <div class="form-group">
                     <label for="mhs_username">Username</label>
-                    <input class="form-control" type="text" placeholder="Username (NIM)" name="mhs_username" id="mhs_username" autocomplete="off">
+                    <input class="form-control" type="text" placeholder="Username (NIM)" name="mhs_username" id="mhs_username" maxlength="14" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="mhs_nama">Nama</label>

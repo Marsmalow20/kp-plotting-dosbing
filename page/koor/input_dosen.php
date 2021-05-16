@@ -61,7 +61,7 @@
             <form action="proc/simpan_dosen.php" method="POST">
                 <div class="form-group">
                     <label for="dosen_username">Username</label>
-                    <input class="form-control" type="text" placeholder="Username (NPP)" name="dosen_username" id="dosen_username" autocomplete="off">
+                    <input class="form-control" type="text" placeholder="Username (NPP)" name="dosen_username" id="dosen_username" maxlength="16" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="dosen_nama">Nama</label>

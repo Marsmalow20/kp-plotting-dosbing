@@ -65,7 +65,10 @@
             <div class="container mt-3">
                 <h3>Edit Log Bimbingan KP</h3>
                 <form action="proc/update_log.php" method="POST">
-                    <?php foreach($q as $qq): ?>
+                    <?php 
+                        foreach($q as $qq):
+                            $leng = strlen($qq['ket']);
+                    ?>
                     <div class="form-group">
                         <label for="log_id">ID Log Bimbingan</label>
                         <input class="form-control" type="text" name="log_id" value="<?= $qq['log_id'] ?>" id="log_id" autocomplete="off" readonly>
@@ -79,8 +82,9 @@
                         <input class="form-control" type="date" name="tgl" id="tgl" value="<?= $qq['tgl'] ?>">
                     </div>
                     <div class="form-floating my-3">
-                        <label for="floatingTextarea">Keterangan</label>
-                        <textarea class="form-control" placeholder="Masukan keterangan bimbingan" name="ket" id="floatingTextarea"><?= $qq['ket'] ?></textarea>
+                        <label for="ket">Keterangan</label>
+                        <textarea class="form-control" placeholder="Masukan keterangan bimbingan" name="ket" id="ket" onkeyup="count(this.value)" maxlength="200"><?= $qq['ket'] ?></textarea>
+                        <large id="passwordHelp" class="form-text my-2">Max Character : <span id="charcount"><?= $leng ?></span>/200</large>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <?php endforeach ?>
@@ -89,6 +93,15 @@
         </div>
 
         <!-- Optional JavaScript -->
+        <script>
+            const charcount = document.getElementById("charcount");
+
+            function count(str) {
+                let leng = str.length;
+
+                charcount.innerHTML = leng;
+            }
+        </script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
