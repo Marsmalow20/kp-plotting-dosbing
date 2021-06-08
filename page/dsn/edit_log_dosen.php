@@ -104,6 +104,7 @@
                         <textarea class="form-control" placeholder="Masukan komentar" name="komentar" id="komentar" onkeyup="count(this.value)" maxlength="200"><?= $qq['komentar'] ?></textarea>
                         <large id="passwordHelp" class="form-text my-2">Max Character : <span id="charcount"><?= $leng ?></span>/200</large>
                     </div>
+                    <a class="btn btn-danger" href="dosen_log_bimbingan.php?mhs=<?= $qq['mhs_username'] ?>" role="button">Cancel</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <?php endforeach ?>
                 </form>

@@ -86,6 +86,7 @@
                         <textarea class="form-control" placeholder="Masukan keterangan bimbingan" name="ket" id="ket" onkeyup="count(this.value)" maxlength="200"><?= $qq['ket'] ?></textarea>
                         <large id="passwordHelp" class="form-text my-2">Max Character : <span id="charcount"><?= $leng ?></span>/200</large>
                     </div>
+                    <a class="btn btn-danger" href="mhs_log_bimbingan.php" role="button">Cancel</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <?php endforeach ?>
                 </form>
